@@ -1,4 +1,2 @@
-obj/version.o: version.cpp version.h \
- /home/travel/testcoin/test/src/obj/build.h
-version.cpp version.h :
- /home/travel/testcoin/test/src/obj/build.h :
+obj/version.o: version.cpp version.h /home/travel/test/src/obj/build.h
+version.cpp version.h /home/travel/test/src/obj/build.h :
