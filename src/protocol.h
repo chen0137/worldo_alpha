@@ -19,9 +19,9 @@
 extern bool fTestNet;
 static inline unsigned short GetDefaultPort(const bool testnet = fTestNet)
 {
-    return testnet ? 19030 : 9030;
+    return testnet ? 56679 : 56991;
 }
-
+//CHANGE
 
 extern unsigned char pchMessageStart[4];
 
