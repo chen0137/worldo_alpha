@@ -831,7 +831,7 @@ uint256 static GetOrphanRoot(const CBlock* pblock)
 
 int64 static GetBlockValue(int nHeight, int64 nFees)
 {
-    int64 nSubsidy = 4 * COIN;
+    int64 nSubsidy = 444 * COIN;
 //CHANGED
 
 //    if(nHeight < 17280) // no block reward within the first 3 days
@@ -845,8 +845,8 @@ int64 static GetBlockValue(int nHeight, int64 nFees)
     return nSubsidy + nFees;
 }
 
-static const int64 nTargetTimespan = 0.25 * 24 * 60 * 60; // redifficulty 0.25 days
-static const int64 nTargetSpacing = 30; // 30 second blocked CHANGED
+static const int64 nTargetTimespan = 2; // redifficulty 0.25 days
+static const int64 nTargetSpacing = 46; // 30 second blocked CHANGED
 static const int64 nInterval = nTargetTimespan / nTargetSpacing;
 
 // Thanks: Balthazar for suggesting the following fix
