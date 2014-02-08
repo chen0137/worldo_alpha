@@ -31,7 +31,7 @@ unsigned int nTransactionsUpdated = 0;
 map<uint256, CBlockIndex*> mapBlockIndex;
 
 //uint256 hashGenesisBlock("0xdd784d87b485d5ebbe91f46504619265d11899f0650d2b0935851bdf7ac89410");
-uint256 hashGenesisBlock("0x28c0a5b3952fc5f664f6e419576bf17cfe5b24a4543f91d66b62154aa9bdf7c1");
+//uint256 hashGenesisBlock("0x28c0a5b3952fc5f664f6e419576bf17cfe5b24a4543f91d66b62154aa9bdf7c1");
 uint256 hashGenesisBlock("0xd604e7cad29f6a9a18d9d1e838b648b09b01435d583e9b7df09aea836c1001e1");
 static CBigNum bnProofOfWorkLimit(~uint256(0) >> 20); // starting difficulty is 1 / 2^12
 CBlockIndex* pindexGenesisBlock = NULL;
