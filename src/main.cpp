@@ -32,7 +32,7 @@ map<uint256, CBlockIndex*> mapBlockIndex;
 
 //uint256 hashGenesisBlock("0xdd784d87b485d5ebbe91f46504619265d11899f0650d2b0935851bdf7ac89410");
 //uint256 hashGenesisBlock("0x28c0a5b3952fc5f664f6e419576bf17cfe5b24a4543f91d66b62154aa9bdf7c1");
-uint256 hashGenesisBlock("0x");
+uint256 hashGenesisBlock("0xa6e3f8a01899d29e3c18dfcd1668e87e0564b1a10b462ce81fb81ed4403e3d56");
 static CBigNum bnProofOfWorkLimit(~uint256(0) >> 20); // starting difficulty is 1 / 2^12
 CBlockIndex* pindexGenesisBlock = NULL;
 int nBestHeight = -1;
@@ -2038,13 +2038,13 @@ bool LoadBlockIndex(bool fAllowNew)
         block.hashPrevBlock = 0;
         block.hashMerkleRoot = block.BuildMerkleTree();
         block.nVersion = 1;
-        block.nTime    = 1391874706;
+        block.nTime    = 1391878290;
         block.nBits    = 0x1e0ffff0;
-        block.nNonce   = 547179;
+        block.nNonce   = 901554;
 
         if (fTestNet)
         {
-            block.nTime    = 1391874706;
+            block.nTime    = 1391878290;
             block.nNonce   = 547179;
         }
 
@@ -2055,7 +2055,7 @@ bool LoadBlockIndex(bool fAllowNew)
         assert(block.hashMerkleRoot == uint256("0x571d0b4f7f84ae4bd5f0314913e89376865c56a7239b9f3852b441b3efc8db89"));
 
         // If genesis block hash does not match, then generate new genesis hash.
-        if (true && block.GetHash() != hashGenesisBlock)
+        if (false && block.GetHash() != hashGenesisBlock)
         {
             printf("Searching for genesis block...\n");
             // This will figure out a valid hash and Nonce if you're
