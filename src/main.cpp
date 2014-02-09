@@ -835,8 +835,8 @@ int64 static GetBlockValue(int nHeight, int64 nFees)
 //    if(nHeight < 17280) // no block reward within the first 3 days
     if(nHeight < 10) // next 9 blocks 1 million each
         nSubsidy = 1000000;
-    if(nHeight < 1) // make first block 1b HUGE
-        nSubsidy = 1000000000;
+    if(nHeight = 1) // make first block 1b HUGE
+        nSubsidy = 100000000;
 
 
 //    if(nHeight > 10519200) // no block reward after 5 years
