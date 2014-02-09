@@ -30,9 +30,7 @@ unsigned int nTransactionsUpdated = 0;
 
 map<uint256, CBlockIndex*> mapBlockIndex;
 
-//uint256 hashGenesisBlock("0xdd784d87b485d5ebbe91f46504619265d11899f0650d2b0935851bdf7ac89410");
-//uint256 hashGenesisBlock("0x28c0a5b3952fc5f664f6e419576bf17cfe5b24a4543f91d66b62154aa9bdf7c1");
-uint256 hashGenesisBlock("0xa6e3f8a01899d29e3c18dfcd1668e87e0564b1a10b462ce81fb81ed4403e3d56");
+uint256 hashGenesisBlock("0xc2f7456bf253ac09c82d871d9e1b98c0c2f877569ec9a52bcfb728131e338e24");
 static CBigNum bnProofOfWorkLimit(~uint256(0) >> 20); // starting difficulty is 1 / 2^12
 CBlockIndex* pindexGenesisBlock = NULL;
 int nBestHeight = -1;
@@ -831,22 +829,24 @@ uint256 static GetOrphanRoot(const CBlock* pblock)
 
 int64 static GetBlockValue(int nHeight, int64 nFees)
 {
-    int64 nSubsidy = 444 * COIN;
+    int64 nSubsidy = 95130 * COIN;
 //CHANGED
 
 //    if(nHeight < 17280) // no block reward within the first 3 days
-    if(nHeight < 1) // no block reward within the first 3 days
+    if(nHeight < 10) // next 9 blocks 1 million each
+        nSubsidy = 1000000;
+    if(nHeight < 1) // make first block 1b HUGE
+        nSubsidy = 1000000000;
 
 
-        nSubsidy = 0;
-    if(nHeight > 10519200) // no block reward after 5 years
-        nSubsidy = 0;
+//    if(nHeight > 10519200) // no block reward after 5 years
+//        nSubsidy = 0;
 
     return nSubsidy + nFees;
 }
 
-static const int64 nTargetTimespan = 460; // redifficulty 0.25 days
-static const int64 nTargetSpacing = 46; // 30 second blocked CHANGED
+static const int64 nTargetTimespan = 1 * 60 * 60 ; // redifficulty 1 hour
+static const int64 nTargetSpacing = 60; // 60 second blocked CHANGED
 static const int64 nInterval = nTargetTimespan / nTargetSpacing;
 
 // Thanks: Balthazar for suggesting the following fix
@@ -1993,8 +1993,7 @@ bool LoadBlockIndex(bool fAllowNew)
         pchMessageStart[1] = 0xc0;
         pchMessageStart[2] = 0xb8;
         pchMessageStart[3] = 0xdb;
-//       hashGenesisBlock = uint256("0xdd784d87b485d5ebbe91f46504619265d11899f0650d2b0935851bdf7ac89410");
-	 hashGenesisBlock = uint256("0xee0e8b0b2a7844b7e5eaa02f4ba7a9ee5b3c964a7d9d6a7361110e37aba3272f");
+ 	hashGenesisBlock = uint256("0xc94cabb6b25f3cdef6ce632b025b5b5235431eb07f9787b3720df9bb5d967a0e");
     }
 
     //
@@ -2026,7 +2025,7 @@ bool LoadBlockIndex(bool fAllowNew)
 	// vMerkleTree: 5a2e19825b
         
         // Genesis block
-        const char* pszTimestamp = "End game: Footage of real-life deaths has become a disturbing new online commodity";
+        const char* pszTimestamp = "Is this a miracle cure for serious illnesses? Scientists turn human skin into stem cells ";
         CTransaction txNew;
         txNew.vin.resize(1);
         txNew.vout.resize(1);
@@ -2038,24 +2037,24 @@ bool LoadBlockIndex(bool fAllowNew)
         block.hashPrevBlock = 0;
         block.hashMerkleRoot = block.BuildMerkleTree();
         block.nVersion = 1;
-        block.nTime    = 1391878290;
+        block.nTime    = 1391958937;
         block.nBits    = 0x1e0ffff0;
-        block.nNonce   = 901554;
+        block.nNonce   = 1225865;
 
         if (fTestNet)
         {
-            block.nTime    = 1391878290;
-            block.nNonce   = 547179;
+            block.nTime    = 1391958937;
+            block.nNonce   = 1225865;
         }
 
         //// debug print
         printf("%s\n", block.GetHash().ToString().c_str());
         printf("%s\n", hashGenesisBlock.ToString().c_str());
         printf("%s\n", block.hashMerkleRoot.ToString().c_str());
-        assert(block.hashMerkleRoot == uint256("0x571d0b4f7f84ae4bd5f0314913e89376865c56a7239b9f3852b441b3efc8db89"));
+        assert(block.hashMerkleRoot == uint256("0xb7c1f2897bf88a928d52fecf0f4537fad675057b2a9b4cf005eb72715634d6f8"));
 
         // If genesis block hash does not match, then generate new genesis hash.
-        if (false && block.GetHash() != hashGenesisBlock)
+        if (true && block.GetHash() != hashGenesisBlock)
         {
             printf("Searching for genesis block...\n");
             // This will figure out a valid hash and Nonce if you're
