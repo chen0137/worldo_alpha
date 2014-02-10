@@ -7,6 +7,10 @@ Please let us know if you would like to contribute code, there is plenty to do.
 
 We'll soon be starting a round of crowdfunding to help move the project along.
 
+Base code is litecoin/smallchange with kimotos gravity well but we'll soon move to Quark, vertcoin or a combination of both.
+
+Worldo will be pure CPU so everyone can use it with any computer.
+
 TODO:
 ====
 
