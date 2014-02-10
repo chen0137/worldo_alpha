@@ -836,17 +836,17 @@ int64 static GetBlockValue(int nHeight, int64 nFees)
 //CHANGED
 
 //    if(nHeight < 17280) // no block reward within the first 3 days
-    if(nHeight<2) {
-        nSubsidy = 100000*COIN;
+    if(nHeight = 1) {
+        nSubsidy = 100001*COIN;
 } 
-else if(nHeight <1000) // make first block 1b HUGE
+else if(nHeight <10) // make first block 1b HUGE
 {
-        nSubsidy = 1*COIN;
+        nSubsidy = 999*COIN;
 }
  
 
 
-nSubsidy >>= (nHeight / 1000);
+//nSubsidy >>= (nHeight / 1000);
     return nSubsidy + nFees;
 }
 
