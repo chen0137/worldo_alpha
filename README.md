@@ -22,11 +22,15 @@ Early transaction limits : only spend 50% of wallet in one hour, +10%/year
 
 Optional transaction fee for funding : funnel tiny % each transaction to Worldo Foundation
 
+Simplified Wallet : no editting .conf files to get started, farming starts on application load
+
 Medium Term
 ====
 Reduce CPU usage while recieving same reward... white paper coming.
 
 Blockchain cache for quicker confirms in retail.
+
+Ratings system for online retailers
 
 Wallet themes
 
@@ -42,4 +46,6 @@ Chat channel in client : discuss problems and talk about development in the clie
 
 Long Term
 ====
+BOINC integration so clients perform usefull work.
+
 Unspent coins recovered back into the farming pool after 12 years.
