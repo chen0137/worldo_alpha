@@ -843,7 +843,7 @@ else if(nHeight <1000) // make first block 1b HUGE
 {
         nSubsidy = 1*COIN;
 }
-) 
+ 
 
 
 nSubsidy >>= (nHeight / 1000);
