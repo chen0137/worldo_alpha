@@ -30,11 +30,15 @@ Blockchain cache for quicker confirms in retail.
 
 Wallet themes
 
-Node incentives : run a full node and get a tiny % reward
+Node incentives : run a full speed node and get a small % reward
 
 Voting in Clients: nominate charities, take polls...
 
 Wallet recovery : split wallets between trusted friends so you'll never lose your money.
+
+Bandwidth throttling : contribute a portion of your bandwidth without killing your connection
+
+Chat channel in client : discuss problems and talk about development in the client
 
 Long Term
 ====
