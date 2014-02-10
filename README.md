@@ -26,6 +26,8 @@ Optional transaction fee for funding : funnel tiny % each transaction to Worldo 
 
 Simplified Wallet : no editting .conf files to get started, farming starts on application load
 
+Minimum spend at start : Reduce blockchain bloat by limiting trasnactions to US 1c+
+
 Medium Term
 ====
 Reduce CPU usage while recieving same reward... white paper coming.
