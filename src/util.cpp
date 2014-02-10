@@ -936,7 +936,7 @@ static std::string FormatException(std::exception* pex, const char* pszThread)
     char pszModule[MAX_PATH] = "";
     GetModuleFileNameA(NULL, pszModule, sizeof(pszModule));
 #else
-    const char* pszModule = "testcoin";
+    const char* pszModule = "worldo_alpha";
 #endif
     if (pex)
         return strprintf(
@@ -975,7 +975,7 @@ boost::filesystem::path GetDefaultDataDir()
     // Windows < Vista: C:\Documents and Settings\Username\Application Data\Worldo
     // Windows >= Vista: C:\Users\Username\AppData\Roaming\Worldo
     // Mac: ~/Library/Application Support/Worldo
-    // Unix: ~/.testcoin
+    // Unix: ~/.worldo_alpha
 #ifdef WIN32
     // Windows
     return GetSpecialFolderPath(CSIDL_APPDATA) / "Worldo";
@@ -993,7 +993,7 @@ boost::filesystem::path GetDefaultDataDir()
     return pathRet / "Worldo";
 #else
     // Unix
-    return pathRet / ".testcoin";
+    return pathRet / ".worldo_alpha";
 #endif
 #endif
 }
@@ -1035,7 +1035,7 @@ const boost::filesystem::path &GetDataDir(bool fNetSpecific)
 
 boost::filesystem::path GetConfigFile()
 {
-    boost::filesystem::path pathConfigFile(GetArg("-conf", "testcoin.conf"));
+    boost::filesystem::path pathConfigFile(GetArg("-conf", "worldo_alpha.conf"));
     if (!pathConfigFile.is_complete()) pathConfigFile = GetDataDir(false) / pathConfigFile;
     return pathConfigFile;
 }
@@ -1045,14 +1045,14 @@ void ReadConfigFile(map<string, string>& mapSettingsRet,
 {
     boost::filesystem::ifstream streamConfig(GetConfigFile());
     if (!streamConfig.good())
-        return; // No testcoin.conf file is OK
+        return; // No worldo_alpha.conf file is OK
 
     set<string> setOptions;
     setOptions.insert("*");
 
     for (boost::program_options::detail::config_file_iterator it(streamConfig, setOptions), end; it != end; ++it)
     {
-        // Don't overwrite existing settings so command line settings override testcoin.conf
+        // Don't overwrite existing settings so command line settings override worldo_alpha.conf
         string strKey = string("-") + it->string_key;
         if (mapSettingsRet.count(strKey) == 0)
         {
@@ -1066,7 +1066,7 @@ void ReadConfigFile(map<string, string>& mapSettingsRet,
 
 boost::filesystem::path GetPidFile()
 {
-    boost::filesystem::path pathPidFile(GetArg("-pid", "testcoin.pid"));
+    boost::filesystem::path pathPidFile(GetArg("-pid", "worldo_alpha.pid"));
     if (!pathPidFile.is_complete()) pathPidFile = GetDataDir() / pathPidFile;
     return pathPidFile;
 }

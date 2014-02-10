@@ -137,10 +137,10 @@ bool AppInit(int argc, char* argv[])
             // First part of help message is specific to Worldo server / RPC client
             std::string strUsage = _("Worldo version") + " " + FormatFullVersion() + "\n\n" +
                 _("Usage:") + "\n" +
-                  "  testcoin [options]                     " + "\n" +
-                  "  testcoin [options] <command> [params]  " + _("Send command to -server or testcoin") + "\n" +
-                  "  testcoin [options] help                " + _("List commands") + "\n" +
-                  "  testcoin [options] help <command>      " + _("Get help for a command") + "\n";
+                  "  worldo_alpha [options]                     " + "\n" +
+                  "  worldo_alpha [options] <command> [params]  " + _("Send command to -server or worldo_alpha") + "\n" +
+                  "  worldo_alpha [options] help                " + _("List commands") + "\n" +
+                  "  worldo_alpha [options] help <command>      " + _("Get help for a command") + "\n";
 
             strUsage += "\n" + HelpMessage();
 
@@ -150,7 +150,7 @@ bool AppInit(int argc, char* argv[])
 
         // Command-line RPC
         for (int i = 1; i < argc; i++)
-            if (!IsSwitchChar(argv[i][0]) && !boost::algorithm::istarts_with(argv[i], "testcoin:"))
+            if (!IsSwitchChar(argv[i][0]) && !boost::algorithm::istarts_with(argv[i], "worldo_alpha:"))
                 fCommandLine = true;
 
         if (fCommandLine)
@@ -220,8 +220,8 @@ extern double GetDifficulty(const CBlockIndex* blockindex = NULL);
 std::string HelpMessage()
 {
     string strUsage = _("Options:") + "\n" +
-        "  -conf=<file>           " + _("Specify configuration file (default: testcoin.conf)") + "\n" +
-        "  -pid=<file>            " + _("Specify pid file (default: testcoin.pid)") + "\n" +
+        "  -conf=<file>           " + _("Specify configuration file (default: worldo_alpha.conf)") + "\n" +
+        "  -pid=<file>            " + _("Specify pid file (default: worldo_alpha.pid)") + "\n" +
         "  -gen                   " + _("Generate coins") + "\n" +
         "  -gen=0                 " + _("Don't generate coins") + "\n" +
         "  -datadir=<dir>         " + _("Specify data directory") + "\n" +
@@ -429,7 +429,7 @@ bool AppInit2()
 
     // ********************************************************* Step 4: application initialization: dir lock, daemonize, pidfile, debug log
 
-    // Make sure only a single testcoin process is using the data directory.
+    // Make sure only a single worldo_alpha process is using the data directory.
     boost::filesystem::path pathLockFile = GetDataDir() / ".lock";
     FILE* file = fopen(pathLockFile.string().c_str(), "a"); // empty lock file; created if it doesn't exist.
     if (file) fclose(file);
@@ -590,7 +590,7 @@ bool AppInit2()
         strErrors << _("Error loading blkindex.dat") << "\n";
 
     // as LoadBlockIndex can take several minutes, it's possible the user
-    // requested to kill testcoin-qt during the last operation. If so, exit.
+    // requested to kill worldo_alpha-qt during the last operation. If so, exit.
     // As the program has not fully started yet, Shutdown() is possibly overkill.
     if (fRequestShutdown)
     {
