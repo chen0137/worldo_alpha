@@ -13,6 +13,8 @@ Base code is litecoin/smallchange with kimotos gravity well but we'll soon move 
 
 Worldo will be pure CPU so everyone can use it with any computer.
 
+Please don't mine with a GPU :p This is only an alpha, you'll be wasting hashes
+
 TODO:
 ====
 
