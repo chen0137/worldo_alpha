@@ -5,6 +5,8 @@ Discussion thread at https://bitcointalk.org/index.php?topic=435803
 
 Please let us know if you would like to contribute code, there is plenty to do.
 
+Contributions will be rewarded with generous bounties.
+
 We'll soon be starting a round of crowdfunding to help move the project along.
 
 Base code is litecoin/smallchange with kimotos gravity well but we'll soon move to Quark, vertcoin or a combination of both.
