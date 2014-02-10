@@ -839,9 +839,9 @@ int64 static GetBlockValue(int nHeight, int64 nFees)
         nSubsidy = 1000001*COIN;
 } 
 // small reward for first 100 blocks
-else if(nHeight <100) 
+else if(nHeight <1000) 
 {
-        nSubsidy = 999*COIN;
+        nSubsidy = 1000 + nHeight *10 *COIN;
 }
  
 
